@@ -3,10 +3,24 @@
 # For more information, please see the documentation at:
 #   https://docs.haskellstack.org/en/stable/topics/lock_files
 
-packages: []
+packages:
+- completed:
+    hackage: vty-windows-0.2.0.3@sha256:0c010b1086a725046a8bb08bb1e6bfdfdb3cfe1c72d6fa77c37306ef9ec774d8,2844
+    pantry-tree:
+      sha256: 958fd0386c589130177c841df63368ff191eb296f9ed2fd050de10e266c354eb
+      size: 2160
+  original:
+    hackage: vty-windows-0.2.0.3@sha256:0c010b1086a725046a8bb08bb1e6bfdfdb3cfe1c72d6fa77c37306ef9ec774d8,2844
+- completed:
+    hackage: hfsevents-0.1.8@sha256:0a736ab01a1c26a6e081a857254e5a6aa5c84ff5ee84a24ea91a8a2b503cea45,901
+    pantry-tree:
+      sha256: 2f9ff8845959dc4632d588967d352388564b553099c7df3b56fb0ad573f916c4
+      size: 438
+  original:
+    hackage: hfsevents-0.1.8@sha256:0a736ab01a1c26a6e081a857254e5a6aa5c84ff5ee84a24ea91a8a2b503cea45,901
 snapshots:
 - completed:
-    sha256: 473840099b95facf73ec72dcafe53a2487bfadeceb03a981a19e16469503a342
-    size: 726266
-    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/24/6.yaml
-  original: lts-24.6
+    sha256: 238fa745b64f91184f9aa518fe04bdde6552533d169b0da5256670df83a0f1a9
+    size: 721141
+    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/22/44.yaml
+  original: lts-22.44

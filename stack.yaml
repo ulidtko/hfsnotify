@@ -1,13 +1,1 @@
-resolver: lts-24.6
-
-packages:
-- '.'
-
-nix:
-  pure: false
-  packages:
-  - zlib
-
-# Uncomment these to test with text-2.1.2, which exports "show" by default
-# - text-2.1.2
-# - parsec-3.1.17.0
+stack-ghc96.yaml
