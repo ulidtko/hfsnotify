@@ -27,7 +27,7 @@ type NativeManager = WNo.WatchManager
 
 -- Win32-notify has (temporarily?) dropped support for Renamed events.
 fsnEvent :: EventIsDirectory -> FilePath -> UTCTime -> WNo.Event -> Event
-fsnEvent isDirectory basedir timestamp (WNo.Created name) = Added (normalise (basedir </> name)) timestamp isDirectory
+fsnEvent isDirectory basedir timestamp (WNo.Created name) = Added (normalise (basedir </> name)) timestamp isDirectory False
 fsnEvent isDirectory basedir timestamp (WNo.Modified name) = Modified (normalise (basedir </> name)) timestamp isDirectory
 fsnEvent isDirectory basedir timestamp (WNo.Deleted name) = Removed (normalise (basedir </> name)) timestamp isDirectory
 

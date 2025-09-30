@@ -35,7 +35,10 @@ data EventIsDirectory = IsFile | IsDirectory
 -- event occurred (timestamps represent current time when FSEvents receives
 -- it from the OS and/or platform-specific Haskell modules).
 data Event =
-    Added { eventPath :: FilePath, eventTime :: UTCTime, eventIsDirectory :: EventIsDirectory }
+    Added { eventPath :: FilePath, eventTime :: UTCTime, eventIsDirectory :: EventIsDirectory
+          -- | The file or directory under `eventPath` was added atomically through a move or rename
+          , isAtomicMove :: Bool
+          }
   | Modified { eventPath :: FilePath, eventTime :: UTCTime, eventIsDirectory :: EventIsDirectory }
   | ModifiedAttributes { eventPath :: FilePath, eventTime :: UTCTime, eventIsDirectory :: EventIsDirectory }
   | Removed { eventPath :: FilePath, eventTime :: UTCTime, eventIsDirectory :: EventIsDirectory }

@@ -53,13 +53,13 @@ fsnEvents basePath' timestamp (INo.Closed (boolToIsDirectory -> isDir) (Just raw
   fromHinotifyPath raw >>= \name -> return [CloseWrite (basePath </> name) timestamp isDir]
 fsnEvents basePath' timestamp (INo.Created (boolToIsDirectory -> isDir) raw) = do
   basePath <- fromRawFilePath basePath'
-  fromHinotifyPath raw >>= \name -> return [Added (basePath </> name) timestamp isDir]
+  fromHinotifyPath raw >>= \name -> return [Added (basePath </> name) timestamp isDir False]
 fsnEvents basePath' timestamp (INo.MovedOut (boolToIsDirectory -> isDir) raw _cookie) = do
   basePath <- fromRawFilePath basePath'
   fromHinotifyPath raw >>= \name -> return [Removed (basePath </> name) timestamp isDir]
 fsnEvents basePath' timestamp (INo.MovedIn (boolToIsDirectory -> isDir) raw _cookie) = do
   basePath <- fromRawFilePath basePath'
-  fromHinotifyPath raw >>= \name -> return [Added (basePath </> name) timestamp isDir]
+  fromHinotifyPath raw >>= \name -> return [Added (basePath </> name) timestamp isDir True]
 fsnEvents basePath' timestamp (INo.Deleted (boolToIsDirectory -> isDir) raw) = do
   basePath <- fromRawFilePath basePath'
   fromHinotifyPath raw >>= \name -> return [Removed (basePath </> name) timestamp isDir]
