@@ -163,7 +163,10 @@ handleRecursiveEvent baseDir actPred callback watchStillExistsVar isRootWatchedD
         let modTime = modificationTimeHiRes fileStatus
         when (modTime > timestampBeforeAddingWatch) $ do
           let isDir = if isDirectory fileStatus then IsDirectory else IsFile
-          let addedEvent = (Added (newDir </> newPath) (posixSecondsToUTCTime timestampBeforeAddingWatch) isDir)
+          -- Assuming non-atomic here is safe default, because we're resynthesizing missed events.
+          -- Any of these files might still be opened for writing and being actively written-to right now.
+          let isAtomic = False
+          let addedEvent = (Added (newDir </> newPath) (posixSecondsToUTCTime timestampBeforeAddingWatch) isDir isAtomic)
           when (actPred addedEvent) $ callback addedEvent
 
     _ -> return ()
